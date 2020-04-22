@@ -1,0 +1,74 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.5;
+}
+a {
+    text-decoration: none;
+}
+
+.App {
+    background-color: tomato;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    padding-top: 5%;
+}
+
+.calculator {
+    padding: 2%;
+    max-width: 400px;
+    max-height: 500px;
+}
+
+#row {
+    display: flex;
+}
+#keys {
+    display: block;
+    padding-top: 2;
+    font-size: 2.5rem;
+    border-color: rgb(237, 47, 14);
+    height: 80px;
+    flex: 1;
+    cursor: pointer;
+    flex-basis: 25%;
+}
+#keys:focus {
+    outline: none;
+}
+#clearkey {
+    flex: 3;
+    color: #666;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+#arthkey {
+    flex: 1;
+    cursor: pointer;
+    background-color: rgb(196, 60, 36);
+}
+
+#screen {
+    padding: 0.5em;
+    background-color: rgb(106, 83, 83);
+    color: white;
+    display: flex;
+    font-size: 3rem;
+    justify-content: flex-end;
+    height: 27%;
+    overflow-x: scroll;
+}
+.keypad {
+    display: flex;
+    color: turquoise;
+    height: 2px;
+    flex-wrap: wrap;
+}
