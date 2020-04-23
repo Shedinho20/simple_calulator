@@ -59,10 +59,10 @@ a {
     padding: 0.5em;
     background-color: rgb(106, 83, 83);
     color: white;
-    display: flex;
     font-size: 3rem;
     justify-content: flex-end;
     height: 27%;
+    text-align: end;
     overflow-x: scroll;
 }
 .keypad {

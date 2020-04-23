@@ -66,9 +66,7 @@ class App extends React.Component {
             }
         ]
     };
-    keydown = e => {
-        console.log("é");
-    };
+
     keyClicked = id => {
         if (id !== 13 && id !== 11 && id !== 12 && id !== 10 && id !== 0) {
             this.setState({ screenvalue: this.state.screenvalue + id });
@@ -103,9 +101,16 @@ class App extends React.Component {
     };
 
     async cal() {
-        await this.setState({ valueenter: this.state.valueenter.concat(this.state.screenvalue) });
-        this.setState({ screenvalue: eval(this.state.valueenter) });
-        this.setState({ valueenter: "" });
+        if (this.state.valueenter !== "") {
+            await this.setState({ valueenter: this.state.valueenter.concat(this.state.screenvalue) });
+            let result = eval(this.state.valueenter);
+            console.log(result.toString().length);
+            if (result.toString().length > 6) {
+                result = result.toFixed(6);
+            }
+            this.setState({ screenvalue: result.toString() });
+            this.setState({ valueenter: "" });
+        }
     }
 
     clear() {
