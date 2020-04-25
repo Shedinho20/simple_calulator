@@ -1,9 +1,12 @@
 import React from "react";
 
-class Displayscreen extends React.Component {
-    render() {
-        return <div id="screen">{this.props.screenvalue}</div>;
-    }
-}
+const Displayscreen = props => {
+    const { screenvalue, onKeyDown } = props;
+    return (
+        <div>
+            <input id="screen" type="number" value={screenvalue} onChange={onKeyDown} readonly="readonly"></input>
+        </div>
+    );
+};
 
 export default Displayscreen;
