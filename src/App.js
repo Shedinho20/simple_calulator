@@ -123,7 +123,7 @@ class App extends React.Component {
             <div className="App">
                 <div className="calculator">
                     <Screen screenvalue={screenvalue} />
-                    <Keypad keyClicked={this.keyClicked} keys={keys} keydown={this.keydown} />
+                    <Keypad keyClicked={this.keyClicked} keys={keys} />
                 </div>
             </div>
         );
