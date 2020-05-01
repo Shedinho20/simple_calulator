@@ -28,13 +28,9 @@ class Key extends React.Component {
     };
     render() {
         const { id, Title } = this.props.element;
+        const { keyClicked } = this.props;
         return (
-            <button
-                id="keys"
-                style={this.getStyle()}
-                onClick={this.props.keyClicked.bind(this, id)}
-                onKeyDown={this.props.keydown}
-            >
+            <button id="keys" style={this.getStyle()} onClick={() => keyClicked(id)}>
                 {Title}
             </button>
         );

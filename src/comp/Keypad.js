@@ -2,18 +2,12 @@ import React from "react";
 import Key from "./Key";
 
 class Keypad extends React.Component {
-    style = () => {};
     render() {
+        const { keys, keyClicked } = this.props;
         return (
             <div className="keypad">
-                {this.props.keyrow1.map(element => (
-                    <Key
-                        element={element}
-                        key={element.id}
-                        style={this.style()}
-                        keyClicked={this.props.keyClicked}
-                        keydown={this.props.keydown}
-                    />
+                {keys.map(element => (
+                    <Key element={element} key={element.id} keyClicked={keyClicked} />
                 ))}
             </div>
         );

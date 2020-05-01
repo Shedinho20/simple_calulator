@@ -7,7 +7,8 @@ class App extends React.Component {
     state = {
         screenvalue: "",
         valueenter: "",
-        keyrow1: [
+        div: "56",
+        keys: [
             {
                 id: 0,
                 Title: "Clear"
@@ -66,9 +67,6 @@ class App extends React.Component {
             }
         ]
     };
-    keydown = e => {
-        console.log("é");
-    };
     keyClicked = id => {
         if (id !== 13 && id !== 11 && id !== 12 && id !== 10 && id !== 0) {
             this.setState({ screenvalue: this.state.screenvalue + id });
@@ -103,9 +101,15 @@ class App extends React.Component {
     };
 
     async cal() {
-        await this.setState({ valueenter: this.state.valueenter.concat(this.state.screenvalue) });
-        this.setState({ screenvalue: eval(this.state.valueenter) });
-        this.setState({ valueenter: "" });
+        if (this.state.valueenter !== "") {
+            await this.setState({ valueenter: this.state.valueenter.concat(this.state.screenvalue) });
+            let result = eval(this.state.valueenter);
+            if (result.toString().length > 9) {
+                result = result.toFixed(9);
+            }
+            this.setState({ screenvalue: result.toString() });
+            this.setState({ valueenter: "" });
+        }
     }
 
     clear() {
@@ -114,11 +118,12 @@ class App extends React.Component {
     }
 
     render() {
+        const { screenvalue, keys } = this.state;
         return (
             <div className="App">
                 <div className="calculator">
-                    <Screen screenvalue={this.state.screenvalue} />
-                    <Keypad keyClicked={this.keyClicked} keyrow1={this.state.keyrow1} keydown={this.keydown} />
+                    <Screen screenvalue={screenvalue} />
+                    <Keypad keyClicked={this.keyClicked} keys={keys} />
                 </div>
             </div>
         );
